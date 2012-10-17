@@ -32,10 +32,11 @@ using System.Collections;
 //--------------------------------------
 //  Class
 //
-//			NOTE: I created this so several classes can be paused/unpaused
+//	NOTE: I created this so several classes can be paused/unpaused
 //
 //--------------------------------------
-public class SuperMonoBehaviour : MonoBehaviour {
+public class SuperMonoBehaviour : MonoBehaviour
+{
 
 	//--------------------------------------
 	//  Properties
@@ -50,12 +51,19 @@ public class SuperMonoBehaviour : MonoBehaviour {
 	//--------------------------------------
 	//  Events
 	//--------------------------------------
-	void OnPauseGame ()
+	///<summary>
+	///	EVENT: Game paused
+	///</summary>
+	void onPauseGame ()
 	{
 		isPaused = true;
 	}
 	
-	void OnResumeGame ()
+	
+	///<summary>
+	///	EVENT: Game unpaused
+	///</summary>
+	void onResumeGame ()
 	{
 		isPaused = false;
 	}

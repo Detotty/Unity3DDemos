@@ -33,7 +33,8 @@ using System.Collections;
 //--------------------------------------
 //  Class
 //--------------------------------------
-public class FaceForwardComponent : MonoBehaviour {
+public class FaceForwardComponent : MonoBehaviour 
+{
 
 	//--------------------------------------
 	//  Properties
@@ -44,12 +45,14 @@ public class FaceForwardComponent : MonoBehaviour {
 	//--------------------------------------
 	//  Methods
 	//--------------------------------------		
-
-	// Use this for initialization
-	void Start () {
+	///<summary>
+	///	Use this for initialization
+	///</summary>
+	void Start () 
+	{
 	
-		moveHorizontallyComponent = gameObject.GetComponent("MoveHorizontallyComponent") as MoveHorizontallyComponent;
-		
+		moveHorizontallyComponent = gameObject.GetComponent<MoveHorizontallyComponent>();
+			
 		float direction_float = moveHorizontallyComponent.direction_float;
 		
 		if (direction_float == 1) {
@@ -74,8 +77,11 @@ public class FaceForwardComponent : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	///<summary>
+	///	Called once per frame
+	///</summary>
+	void Update () 
+	{
 
 	
 	}

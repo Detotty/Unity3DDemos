@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
 	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-	<ProductVersion>9.0.21022</ProductVersion>
+	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<ProjectGuid>{AFAEC834-9C5B-BB85-DFD9-8490F968F2CB}</ProjectGuid>
 	<OutputType>Library</OutputType>
@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_3_4_2;UNITY_3_4;UNITY_EDITOR;ENABLE_PROFILER;UNITY_WEBPLAYER;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_FLASH;ENABLE_IMAGEEFFECTS;ENABLE_PHYSICS;ENABLE_GENERICS;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;UNITY_4_0_0;UNITY_4_0;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -37,20 +37,26 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity 4Beta/Unity 4Beta.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity 4Beta/Unity 4Beta.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FlyerGame\Scripts\Constants\GameConstants.cs" />
      <Compile Include="Assets\FlyerGame\Scripts\FaceForwardComponent.cs" />
-     <Compile Include="Assets\FlyerGame\Scripts\GameOverComponent.cs" />
+     <Compile Include="Assets\FlyerGame\Scripts\HitDetectionComponent.cs" />
+     <Compile Include="Assets\FlyerGame\Scripts\Managers\GUIManagerComponent.cs" />
+     <Compile Include="Assets\FlyerGame\Scripts\Managers\GameManagerComponent.cs" />
+     <Compile Include="Assets\FlyerGame\Scripts\Managers\SoundManagerComponent.cs" />
      <Compile Include="Assets\FlyerGame\Scripts\MoveByKeyboardInputComponent.cs" />
      <Compile Include="Assets\FlyerGame\Scripts\MoveHorizontallyComponent.cs" />
      <Compile Include="Assets\FlyerGame\Scripts\ScreenTrapComponent.cs" />
      <Compile Include="Assets\FlyerGame\Scripts\ScreenWrapComponent.cs" />
      <Compile Include="Assets\FlyerGame\Scripts\SuperMonoBehaviour.cs" />
+     <Compile Include="Assets\FlyerGame\Scripts\Templates\TemplateComponent.cs" />
+     <Compile Include="Assets\FlyerGame\Scripts\Templates\TemplateManagerComponent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -62,4 +68,3 @@
   -->
   
 </Project>
-	

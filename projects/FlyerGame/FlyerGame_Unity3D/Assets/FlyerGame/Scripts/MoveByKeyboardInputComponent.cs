@@ -33,47 +33,57 @@ using System.Collections;
 //--------------------------------------
 //  Class
 //--------------------------------------
-public class MoveByKeyboardInputComponent : SuperMonoBehaviour {
+public class MoveByKeyboardInputComponent : SuperMonoBehaviour 
+{
 
 	//--------------------------------------
 	//  Properties
 	//--------------------------------------
-	AudioSource moveFlyerSound;
 	float direction_float;
+	private GameManagerComponent gameManagerComponent;
 	
 	//--------------------------------------
 	//  Methods
 	//--------------------------------------		
-
-	// Use this for initialization
-	void Start () {
-		moveFlyerSound 	= (GetComponents(typeof(AudioSource) )[2] as AudioSource);
+	///<summary>
+	///	Use this for initialization
+	///</summary>
+	void Start () 
+	{
+		
 		direction_float = 1;
+		//
+		GameObject gameManagerGameObject = GameObject.Find("GameManagerGameObject");
+		gameManagerComponent = gameManagerGameObject.GetComponent<GameManagerComponent>();
+			
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	///<summary>
+	///	Called once per frame
+	///</summary>
+	void Update () 
+	{
 		
 		if (!isPaused) {
+			
 			float x_float = transform.position.x;
 			float y_float = transform.position.y;
-			float movementRadius_float = 10;
 			
 			if (Input.GetKeyUp (KeyCode.UpArrow)) {
-				y_float += movementRadius_float;
-				onFlyerMoved();
+				y_float += GameConstants.SPEED_FLYER;
+				doMoveTheFlyer();
 			} else 	if (Input.GetKeyUp (KeyCode.DownArrow)) {
-				y_float -= movementRadius_float;
-				onFlyerMoved();
+				y_float -= GameConstants.SPEED_FLYER;
+				doMoveTheFlyer();
 			}
 			
 			
 			if (Input.GetKeyUp (KeyCode.LeftArrow)) {
-				x_float += movementRadius_float;
-				onFlyerMoved();
+				x_float += GameConstants.SPEED_FLYER;
+				doMoveTheFlyer();
 			} else 	if (Input.GetKeyUp (KeyCode.RightArrow)) {
-				x_float -= movementRadius_float;
-				onFlyerMoved();
+				x_float -= GameConstants.SPEED_FLYER;
+				doMoveTheFlyer();
 			}
 			
 			transform.position = new Vector3 ( 
@@ -85,16 +95,19 @@ public class MoveByKeyboardInputComponent : SuperMonoBehaviour {
 		}
 	
 	}
-	
-	void onFlyerMoved () {
+
+	///<summary>
+	///	Use this for initialization
+	///</summary>
+	void doMoveTheFlyer () 
+	{
 		
-		moveFlyerSound.Play();
+		SoundManagerComponent.PlayAudioClip  (SoundManagerComponent.AUDIO_CLIP_MOVE_FLYER_SOUND);
 		
 		//ROTATE WITH EACH MOVEMENT, ALTERNATE BETWEEN 2 SPECIFIC ANGLES
 		if (direction_float == 1) {
 			direction_float = 0;
 			transform.eulerAngles = new Vector3 (
-			
 				0, 
 				gameObject.transform.eulerAngles.y, 
 				gameObject.transform.eulerAngles.z
@@ -103,13 +116,19 @@ public class MoveByKeyboardInputComponent : SuperMonoBehaviour {
 		} else {
 			direction_float = 1;
 			transform.eulerAngles = new Vector3 (
-			
 				45, 
 				gameObject.transform.eulerAngles.y, 
 				gameObject.transform.eulerAngles.z
 			);
 			
 		}
+		
+		//CHECK FOR VICTORY
+		if (transform.position.y > GameConstants.APP_Y_FLYER_VICTORY) {
+			gameManagerComponent.doEndGameWithWin();
+		} 
+	
+		
 	}
 	
 	//--------------------------------------

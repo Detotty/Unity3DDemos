@@ -32,30 +32,33 @@ using System.Collections;
 //--------------------------------------
 //  Class
 //--------------------------------------
-public class MoveHorizontallyComponent : SuperMonoBehaviour {
+public class MoveHorizontallyComponent : SuperMonoBehaviour 
+{
 
 	//--------------------------------------
 	//  Properties
 	//--------------------------------------
 	public float direction_float = 1;
-	public float speed_double = 1;
 	
 			
 	//--------------------------------------
 	//  Methods
 	//--------------------------------------		
-
-	// Use this for initialization
+	///<summary>
+	///	Use this for initialization
+	///</summary>
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
+	///<summary>
+	///	Called once per frame
+	///</summary>
 	void Update () {
 		
 		if (!isPaused) {
 			
-			var x = transform.position.x + speed_double/2 * direction_float;
+			var x = transform.position.x + GameConstants.SPEED_ENEMY/2 * direction_float;
 			
 			transform.position = new Vector3 ( 		
 				x, 

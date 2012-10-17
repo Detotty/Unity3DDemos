@@ -32,7 +32,8 @@ using System.Collections;
 //--------------------------------------
 //  Class
 //--------------------------------------
-public class ScreenTrapComponent : MonoBehaviour {
+public class ScreenTrapComponent : MonoBehaviour 
+{
 
 	//--------------------------------------
 	//  Properties
@@ -41,34 +42,38 @@ public class ScreenTrapComponent : MonoBehaviour {
 	//--------------------------------------
 	//  Methods
 	//--------------------------------------		
-
-	// Use this for initialization
-	void Start () {
+	///<summary>
+	///	Use this for initialization
+	///</summary>
+	void Start () 
+	{
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	///<summary>
+	///	Called once per frame
+	///</summary>
+	void Update () 
+	{
 		
 		var x = transform.position.x;
 		var y = transform.position.y;
 		
-				
-		if (x > 100) {
-			x = 100;
-		} else if (x < 0) {
-			x = 0;
+			
+		//CHECK EDGE OF SCREEN
+		if (x > GameConstants.APP_X + GameConstants.APP_WIDTH) {
+			x = GameConstants.APP_X + GameConstants.APP_WIDTH;
+		} else if (x < GameConstants.APP_X) {
+			x = GameConstants.APP_X;
 		}
 		
-		if (y > 100) {
-			y = 100;
-		} else if (y < 0) {
-			y = 0;
+		if (y > GameConstants.APP_Y + GameConstants.APP_HEIGHT) {
+			y = GameConstants.APP_Y + GameConstants.APP_HEIGHT;
+		} else if (y <  GameConstants.APP_Y) {
+			y = GameConstants.APP_Y;
 		}
 		
-		
-		
-		
+		//MOVE
 		transform.position = new Vector3 ( 
 			x, 
 			y, 

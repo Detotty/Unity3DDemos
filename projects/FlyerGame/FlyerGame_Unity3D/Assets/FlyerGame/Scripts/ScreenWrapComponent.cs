@@ -33,7 +33,8 @@ using System.Collections;
 //--------------------------------------
 //  Class
 //--------------------------------------
-public class ScreenWrapComponent : MonoBehaviour {
+public class ScreenWrapComponent : MonoBehaviour 
+{
 
 	//--------------------------------------
 	//  Properties
@@ -42,34 +43,40 @@ public class ScreenWrapComponent : MonoBehaviour {
 	//--------------------------------------
 	//  Methods
 	//--------------------------------------		
-
-	// Use this for initialization
-	void Start () {
+	///<summary>
+	///	Use this for initialization
+	///</summary>
+	void Start () 
+	{
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	///<summary>
+	///	Called once per frame
+	///</summary>
+	void Update () 
+	{
 		
+		//GET
 		var x = transform.position.x;
 		
-				
-		if (x > 100) {
-			x = 0;
-		} else if (x < 0) {
-			x = 100;
+		//CHECK	
+		if (x > GameConstants.APP_X + GameConstants.APP_WIDTH) {
+			x = GameConstants.APP_X;
+		} else if (x < GameConstants.APP_X) {
+			x = GameConstants.APP_X + GameConstants.APP_WIDTH;
 		}
 		
+		//SET
 		transform.position = new Vector3 ( 
-		
-		x, 
-		transform.position.y, 
-		transform.position.z
-		
+			x, 
+			transform.position.y, 
+			transform.position.z
 		);
 
 	
 	}
+	
 	//--------------------------------------
 	//  Events
 	//--------------------------------------
