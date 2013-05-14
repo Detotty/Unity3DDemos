@@ -90,12 +90,17 @@ public class GameManagerComponent : MonoBehaviour
 	public void doAddNewCube () 
 	{
 		//CREATE A NEW CUBE
-		GameObject instance = Instantiate(Resources.Load("Prefabs/CubePrefab")) as GameObject;
+		GameObject instance = Instantiate(Resources.Load("Prefabs/CubePrefab"), new Vector3 (.5f, 7.8f, .20f), Quaternion.identity) as GameObject;
+		
 		
 		//UPDATE THE COUNT
 		GameObject[] cubePrefabs = GameObject.FindGameObjectsWithTag ("CubePrefab");
 		int totalCubes_int = cubePrefabs.Length;
-		Debug.Log("cubePrefabs: " + totalCubes_int);
+		
+		//UPDATE THE NAME (OPTIONAL)
+		instance.name = "CubePrefab_" + totalCubes_int;
+		
+		//Debug.Log("cubePrefabs: " + totalCubes_int);
 		
 		//UPDATE GUI
 		guiManagerComponent.setScore (totalCubes_int);
@@ -105,7 +110,14 @@ public class GameManagerComponent : MonoBehaviour
 		
 	}
 
-
+	///<summary>
+	///	UPON CLICK: quit application
+	///</summary>
+	public void doQuitApplication () 
+	{
+		//Application.Quit();
+	}
+	
 	
 	//--------------------------------------
 	//  Events

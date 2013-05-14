@@ -56,9 +56,7 @@ public class GUIManagerComponent : MonoBehaviour
 		
 		//
 		gameManagerComponent = GetComponent<GameManagerComponent>();
-		
-		//SET SCORE
-		setScore (0);
+
 		
 		
 		
@@ -83,6 +81,10 @@ public class GUIManagerComponent : MonoBehaviour
 			gameManagerComponent.doResetAllCubes();
 
 		}
+		
+				
+		//SET SCORE
+		setScore (0);
         
     }
 	

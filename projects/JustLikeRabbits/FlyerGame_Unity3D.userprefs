@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/FlyerGame/Scripts/Templates/TemplateComponent.cs">
+    <Files>
+      <File FileName="Assets/FlyerGame/Scripts/Templates/TemplateComponent.cs" Line="183" Column="2" />
+      <File FileName="Assets/FlyerGame/Scripts/Templates/TemplateManagerComponent.cs" Line="36" Column="47" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
